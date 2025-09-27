@@ -16,19 +16,19 @@ class Player(GameSprite):
     def update_r(self):
         keys_pressed = key.get_pressed()
         if keys_pressed[K_w] and self.rect.x > 5:
-            self.rect.x -= self.speed
+            self.rect.y -= self.speed
         if keys_pressed[K_s] and self.rect.x < width - 80:
-            self.rect.x += self.speed
+            self.rect.y += self.speed
     def update_l(self):
         mouse_buttons = mouse.get_pressed()
         if mouse_buttons[0] and self.rect.x > 5:
-            self.rect.x -= self.speed
-        if mouse_buttons[2] and self.rect.x < width - 50:
-            self.rect.x += self.speed
+            self.rect.y -= self.speed
+        if mouse_buttons[2]:
+            self.rect.y += self.speed
 
 rocket1 = Player('rocket.png', 20, 250, 15, 100, 5)
 rocket2 = Player('rocket.png', 680, 250, 15, 100, 5)
-ball = Player('ball.png', 350, 250, 5, 50, 5)
+ball = Player('ball.png', 350, 250, 50, 50, 1.5)
 font.init()
 font = font.Font(None, 35)
 lose1 = font.render('Игрок 1 проиграл!', True, (180, 0, 0))
